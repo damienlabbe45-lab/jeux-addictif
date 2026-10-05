@@ -26,10 +26,10 @@ const correctersElement = document.getElementById("good_letter");
 const wrondLettersElement = document.getElementById("bad_letter");
 
 
-correctLetters = [];
+let correctLetters = [];
 
 
-wrongLetters = [];
+let wrongLetters = [];
 
 let word ="";
 let masque = [];
@@ -44,7 +44,7 @@ buttonValidate.addEventListener("click", function(){
     responseWord.innerText = masque.join("");
     document.getElementById("input_web").value = "";
     correctersElement.innerText = "voici la liste des bonnes lettres : " + correctLetters.join("- \n");
-    if(!correctLetters.includes(letter)) wrongLetters.push(value);
+    if(!correctLetters.includes(value) && !wrongLetters.includes(value)) wrongLetters.push(value);
     wrondLettersElement.innerText = "voici la liste des mauvaises lettres :" + wrongLetters.join("- \n");
 })
 
@@ -85,8 +85,8 @@ function initGame(){
     responseWord.innerText = masque.join(""); //affiche des tirets dans la balise <p>
 
 
-    let lettercorrect = [];
+    lettercorrect = [];
 
-    let wrongletters = [];
+    lwrongletters = [];
 }
 initGame();
