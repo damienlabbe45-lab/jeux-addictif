@@ -85,8 +85,11 @@ function initGame(){
     responseWord.innerText = masque.join(""); //affiche des tirets dans la balise <p>
 
 
-    lettercorrect = [];
+    correctLetters = [];
 
-    lwrongletters = [];
+    wrongLetters = [];
+
+    correctersElement.innerText = "voici la liste des bonnes lettres : ";
+    wrondLettersElement.innerText = "voici la liste des mauvaises lettres :";
 }
 initGame();
