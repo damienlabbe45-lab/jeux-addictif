@@ -14,6 +14,13 @@ const words = ["Jupiter", "Zeus", "Aphrodite", "Vénus", "Marth", "Lucina", "Mar
 // [] déclare un Array (tableau)
 //function blalba, définit une fonction blabla
 
+const buttonValidate = document.getElementById(letter_validate)
+//sélectionne l'élément html letter_validate
+
+const inputWord = document.getElementById("mot_afficher")
+
+
+
 function randomWords(){
     const array = new Uint32Array(1);
     //new Unin32Array(1) tableau d'entier 3é bits non signés à 1 seule case (je suppose que le 1 vient de là)
