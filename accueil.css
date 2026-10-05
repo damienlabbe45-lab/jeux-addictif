@@ -1,6 +1,9 @@
 h1{
     font-size: large;
     font-family: 'Times New Roman';
-    text-align : center;
     color: darkslategrey;
+}
+
+body {
+    text-align: center;
 }
