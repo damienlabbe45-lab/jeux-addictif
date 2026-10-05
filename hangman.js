@@ -22,8 +22,10 @@ const responseWord = document.getElementById("mot_afficher")
 buttonValidate.addEventListener("click", function(){
     //éxécution du code lorsque on clique
 })
+let word = randomWords();
 
-responseWord.innerText = "----------------------"; //affiche des tirets dans la balise <p>
+
+responseWord.innerText = "-".repeat(word.length); //affiche des tirets dans la balise <p>
 
 function randomWords(){
     const array = new Uint32Array(1);
