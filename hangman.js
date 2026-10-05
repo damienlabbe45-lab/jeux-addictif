@@ -14,14 +14,14 @@ const words = ["Jupiter", "Zeus", "Aphrodite", "Vénus", "Marth", "Lucina", "Mar
 // [] déclare un Array (tableau)
 //function blalba, définit une fonction blabla
 
-const buttonValidate = document.getElementById(letter_validate)
+const buttonValidate = document.getElementById("letter_validate")
 //sélectionne l'élément html letter_validate
 
 const responseWord = document.getElementById("mot_afficher")
 
-buttonValidate.addEventListener("click", function()){
+buttonValidate.addEventListener("click", function(){
     //éxécution du code lorsque on clique
-}
+})
 
 responseWord.innerText = "----------------------"; //affiche des tirets dans la balise <p>
 
