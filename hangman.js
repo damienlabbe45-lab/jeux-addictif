@@ -17,9 +17,13 @@ const words = ["Jupiter", "Zeus", "Aphrodite", "Vénus", "Marth", "Lucina", "Mar
 const buttonValidate = document.getElementById(letter_validate)
 //sélectionne l'élément html letter_validate
 
-const inputWord = document.getElementById("mot_afficher")
+const responseWord = document.getElementById("mot_afficher")
 
+buttonValidate.addEventListener("click", function()){
+    //éxécution du code lorsque on clique
+}
 
+responseWord.innerText = "----------------------"; //affiche des tirets dans la balise <p>
 
 function randomWords(){
     const array = new Uint32Array(1);
