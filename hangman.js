@@ -33,6 +33,7 @@ buttonValidate.addEventListener("click", function(){
         masque[i] = value;
     }
     responseWord.innerText = masque.join("");
+    document.getElementById("input_web").value = ""
 })
 
 
