@@ -35,6 +35,9 @@ buttonValidate.addEventListener("click", function(){
     document.getElementById("input_web").value = ""
 })
 
+buttonRegame.addEventListener("click", function(){
+    initGame();
+})
 function randomWords(){
     const array = new Uint32Array(1);
     //new Unin32Array(1) tableau d'entier 3é bits non signés à 1 seule case (je suppose que le 1 vient de là)
