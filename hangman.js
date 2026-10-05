@@ -19,11 +19,10 @@ const buttonValidate = document.getElementById("letter_validate");
 
 const responseWord = document.getElementById("mot_afficher");
 
+const buttonRegame = document.getElementById("rejouer")
 
-
-let word = randomWords();
-
-let masque = Array(word.length).fill("-");
+let word ="";
+let masque = [];
 
 
 buttonValidate.addEventListener("click", function(){
@@ -35,9 +34,6 @@ buttonValidate.addEventListener("click", function(){
     responseWord.innerText = masque.join("");
     document.getElementById("input_web").value = ""
 })
-
-
-responseWord.innerText = masque.join(""); //affiche des tirets dans la balise <p>
 
 function randomWords(){
     const array = new Uint32Array(1);
@@ -60,3 +56,12 @@ function findIndexs(letter, word){
     }
     return index;
 }
+
+function initGame(){
+    word = randomWords();
+    
+    masque = Array(word.length).fill("-");
+
+    responseWord.innerText = masque.join(""); //affiche des tirets dans la balise <p>
+}
+initGame();
