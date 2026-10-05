@@ -32,11 +32,12 @@ buttonValidate.addEventListener("click", function(){
         masque[i] = value;
     }
     responseWord.innerText = masque.join("");
-    document.getElementById("input_web").value = ""
+    document.getElementById("input_web").value = "";
 })
 
 buttonRegame.addEventListener("click", function(){
     initGame();
+    document.getElementById("input_web").value = "";
 })
 function randomWords(){
     const array = new Uint32Array(1);
