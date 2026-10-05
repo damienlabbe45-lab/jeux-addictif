@@ -21,6 +21,16 @@ const responseWord = document.getElementById("mot_afficher");
 
 const buttonRegame = document.getElementById("rejouer")
 
+const correctersElement = document.getElementById("good_letter");
+
+const wrondLettersElement = document.getElementById("bad_letter");
+
+
+correctLetters = [];
+
+
+wrongLetters = [];
+
 let word ="";
 let masque = [];
 
@@ -33,6 +43,9 @@ buttonValidate.addEventListener("click", function(){
     }
     responseWord.innerText = masque.join("");
     document.getElementById("input_web").value = "";
+    correctersElement.innerText = "voici la liste des bonnes lettres : " + correctLetters.join("- \n");
+    if(!correctLetters.includes(letter)) wrongLetters.push(value);
+    wrondLettersElement.innerText = "voici la liste des mauvaises lettres :" + wrongLetters.join("- \n");
 })
 
 buttonRegame.addEventListener("click", function(){
@@ -55,7 +68,10 @@ function findIndexs(letter, word){
     const index = [];
     //créé un tableau vide
     for(let i = 0; i< word.length; i++){
-        if(word[i] == letter) index.push(i);
+        if(word[i] == letter){
+            index.push(i);
+            if(!correctLetters.includes(letter))correctLetters.push(letter);
+        } 
         //push, l'équivent de .add en java ou de .append en python
     }
     return index;
@@ -67,5 +83,10 @@ function initGame(){
     masque = Array(word.length).fill("-");
 
     responseWord.innerText = masque.join(""); //affiche des tirets dans la balise <p>
+
+
+    let lettercorrect = [];
+
+    let wrongletters = [];
 }
 initGame();
