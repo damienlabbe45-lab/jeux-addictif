@@ -21,6 +21,7 @@ const responseWord = document.getElementById("mot_afficher")
 
 buttonValidate.addEventListener("click", function(){
     //éxécution du code lorsque on clique
+    return findIndexs(document.getElementById("input_web".valueOf()), word)
 })
 let word = randomWords();
 
