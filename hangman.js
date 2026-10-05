@@ -10,18 +10,28 @@ const words = ["Jupiter", "Zeus", "Aphrodite", "Vénus", "Marth", "Lucina", "Mar
                               "Apollon", "Diane", "Artemis", "Dianthus", "Jedusort", "William", "Ulrich", "Joséphiroth"
                               , "Jim", "Morales", "Makoto", "Naegi", "Celica", "Yuri", "Moon", "Bernadetta", "Seiros",
                             "Mathilda", "Python", "Java","Aiosqlite","Fortuna","Monopoly", "Roleplay","Lancer","Dévelopeur"]
+//const c'est pour indiquer une constance qui va jamais changer, le type est dynamique comme en python. si ca doit changer, on utilise let
+// [] déclare un Array (tableau)
+//function blalba, définit une fonction blabla
 
 function randomWords(){
     const array = new Uint32Array(1);
+    //new Unin32Array(1) tableau d'entier 3é bits non signés à 1 seule case (je suppose que le 1 vient de là)
+    //c'est la structure exigé pour  recevoir le nombre généré.
     window.crypto.getRandomValues(array);
+    //méthode native du navigateur  qui remplit le tableau avec des octets aléatoires sécurisés. c'est l'quivalent de SecureRandom de java
     const randomIndex = array[0] % words.length;
+    //accède à la premère case du table et donne le reste  pavec comme dénominateur la taille du tableau
     return words[randomIndex].toLowerCase();
+    // met en inuscule toLowercase
 }
 
 function findIndexs(letter, word){
     const index = [];
+    //créé un tableau vide
     for(let i = 0; i< word.length; i++){
         if(word[i] == letter) index.push(i);
+        //push, l'équivent de .add en java ou de .append en python
     }
     return index;
 }
