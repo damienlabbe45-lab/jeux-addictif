@@ -14,19 +14,29 @@ const words = ["Jupiter", "Zeus", "Aphrodite", "Vénus", "Marth", "Lucina", "Mar
 // [] déclare un Array (tableau)
 //function blalba, définit une fonction blabla
 
-const buttonValidate = document.getElementById("letter_validate")
+const buttonValidate = document.getElementById("letter_validate");
 //sélectionne l'élément html letter_validate
 
-const responseWord = document.getElementById("mot_afficher")
+const responseWord = document.getElementById("mot_afficher");
+
+
+
+let word = randomWords();
+
+let masque = Array(word.length).fill("-");
+
 
 buttonValidate.addEventListener("click", function(){
     //éxécution du code lorsque on clique
-    return findIndexs(document.getElementById("input_web".valueOf()), word)
+    const value = document.getElementById("input_web").value.toLowerCase();
+    for(let i of findIndexs(value, word)){
+        masque[i] = value;
+    }
+    responseWord.innerText = masque.join("");
 })
-let word = randomWords();
 
 
-responseWord.innerText = "-".repeat(word.length); //affiche des tirets dans la balise <p>
+responseWord.innerText = masque.join(""); //affiche des tirets dans la balise <p>
 
 function randomWords(){
     const array = new Uint32Array(1);
