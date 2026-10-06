@@ -25,6 +25,7 @@ const correctersElement = document.getElementById("good_letter");
 
 const wrondLettersElement = document.getElementById("bad_letter");
 
+const letters = document.getElementById("letters")
 
 let correctLetters = [];
 
@@ -35,8 +36,8 @@ let word ="";
 let masque = [];
 
 
-buttonValidate.addEventListener("click", function(){
-    //éxécution du code lorsque on clique
+letters.addEventListener("submit", function(e){
+    e.preventDefault(); 
     const value = document.getElementById("input_web").value.toLowerCase();
     for(let i of findIndexs(value, word)){
         masque[i] = value;
