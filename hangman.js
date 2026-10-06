@@ -39,31 +39,50 @@ let masque = [];
 letters.addEventListener("submit", function(e){
     e.preventDefault(); 
     const value = document.getElementById("input_web").value.toLowerCase();
-    for(let i of findIndexs(value, word)){
-        masque[i] = value;
-    }
-    responseWord.innerText = masque.join("");
+    if(value.length == 1) onevalue(value);
+    else manyvalue(value)
     document.getElementById("input_web").value = "";
+
     const goodLetters = correctLetters.length > 0 ? "\n- " + correctLetters.join("\n- ") : "";
 
     correctersElement.innerText = "Voici la liste des bonnes lettres :" + goodLetters;
 
-    if(!correctLetters.includes(value) && !wrongLetters.includes(value)) wrongLetters.push(value);
 
     const badLetters = wrongLetters.length > 0 ? "\n- " + wrongLetters.join("\n- ") : "";
 
     wrondLettersElement.innerText = "Voici la liste des mauvaises lettres :" + badLetters;
 
-    const values = checkstatus();
-    gameOver.innerText = values
+    })
 
-    if (values !== "") document.getElementById("input_web").disabled = true;
-})
 
 buttonRegame.addEventListener("click", function(){
     initGame();
     document.getElementById("input_web").value = "";
 })
+
+function manyvalue(value){
+    masque = value.split("");
+    value = checkstatus(true)
+    if(value == "Vous avez gagné ^^ !!!!!") responseWord.innerText = word;
+    gameOver.innerText = value
+    document.getElementById("input_web").disabled = true;
+}
+
+function onevalue(value){
+     for(let i of findIndexs(value, word)){
+        masque[i] = value;
+    }
+    responseWord.innerText = masque.join("");
+    
+    if(!correctLetters.includes(value) && !wrongLetters.includes(value)) wrongLetters.push(value);
+
+    const values = checkstatus(false);
+    gameOver.innerText = values
+
+    if (values !== "") document.getElementById("input_web").disabled = true;
+
+}
+
 function randomWords(){
     const array = new Uint32Array(1);
     //new Unin32Array(1) tableau d'entier 3é bits non signés à 1 seule case (je suppose que le 1 vient de là)
@@ -89,11 +108,11 @@ function findIndexs(letter, word){
     return index;
 }
 
-function checkstatus(){
+function checkstatus(isWord){
     if( masque.join("") == word ) return "Vous avez gagné ^^ !!!!!";
     
-    if(wrongLetters.length >= 15) return "Vous avez perdu ...";
-    
+    if(wrongLetters.length >= 15 || isWord) return "Vous avez perdu ...";
+
     else return "";
 }
 
