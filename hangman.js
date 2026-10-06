@@ -14,7 +14,6 @@ const words = ["Jupiter", "Zeus", "Aphrodite", "Vénus", "Marth", "Lucina", "Mar
 // [] déclare un Array (tableau)
 //function blalba, définit une fonction blabla
 
-const buttonValidate = document.getElementById("letter_validate");
 //sélectionne l'élément html letter_validate
 
 const responseWord = document.getElementById("mot_afficher");
@@ -25,7 +24,8 @@ const correctersElement = document.getElementById("good_letter");
 
 const wrondLettersElement = document.getElementById("bad_letter");
 
-const letters = document.getElementById("letters")
+const letters = document.getElementById("letters");
+const gameOver = document.getElementById("gameOver");
 
 let correctLetters = [];
 
@@ -53,6 +53,11 @@ letters.addEventListener("submit", function(e){
     const badLetters = wrongLetters.length > 0 ? "\n- " + wrongLetters.join("\n- ") : "";
 
     wrondLettersElement.innerText = "Voici la liste des mauvaises lettres :" + badLetters;
+
+    const values = checkstatus();
+    gameOver.innerText = values
+
+    if (values !== "") document.getElementById("input_web").disabled = true;
 })
 
 buttonRegame.addEventListener("click", function(){
@@ -84,6 +89,14 @@ function findIndexs(letter, word){
     return index;
 }
 
+function checkstatus(){
+    if( masque.join("") == word ) return "Vous avez gagné ^^ !!!!!";
+    
+    if(wrongLetters.length >= 15) return "Vous avez perdu ...";
+    
+    else return "";
+}
+
 function initGame(){
     word = randomWords();
     
@@ -98,5 +111,7 @@ function initGame(){
 
     correctersElement.innerText = "Voici la liste des bonnes lettres : ";
     wrondLettersElement.innerText = "Voici la liste des mauvaises lettres :";
+    gameOver.innerText = "";
+    document.getElementById("input_web").disabled = false;
 }
 initGame();
