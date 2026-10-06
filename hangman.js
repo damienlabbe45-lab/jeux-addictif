@@ -43,9 +43,15 @@ buttonValidate.addEventListener("click", function(){
     }
     responseWord.innerText = masque.join("");
     document.getElementById("input_web").value = "";
-    correctersElement.innerText = "voici la liste des bonnes lettres : " + correctLetters.join("- \n");
+    const goodLetters = correctLetters.length > 0 ? "\n- " + correctLetters.join("\n- ") : "";
+
+    correctersElement.innerText = "Voici la liste des bonnes lettres :" + goodLetters;
+
     if(!correctLetters.includes(value) && !wrongLetters.includes(value)) wrongLetters.push(value);
-    wrondLettersElement.innerText = "voici la liste des mauvaises lettres :" + wrongLetters.join("- \n");
+
+    const badLetters = wrongLetters.length > 0 ? "\n- " + wrongLetters.join("\n- ") : "";
+
+    wrondLettersElement.innerText = "Voici la liste des mauvaises lettres :" + badLetters;
 })
 
 buttonRegame.addEventListener("click", function(){
@@ -89,7 +95,7 @@ function initGame(){
 
     wrongLetters = [];
 
-    correctersElement.innerText = "voici la liste des bonnes lettres : ";
-    wrondLettersElement.innerText = "voici la liste des mauvaises lettres :";
+    correctersElement.innerText = "Voici la liste des bonnes lettres : ";
+    wrondLettersElement.innerText = "Voici la liste des mauvaises lettres :";
 }
 initGame();
