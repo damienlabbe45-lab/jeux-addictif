@@ -11,7 +11,8 @@ const words = ["Jupiter", "Zeus", "Aphrodite", "Vénus", "Marth", "Lucina", "Mar
                               , "Jim", "Morales", "Makoto", "Naegi", "Celica", "Yuri", "Moon", "Bernadetta", "Seiros",
                             "Mathilda", "Python", "Java","Aiosqlite","Fortuna","Monopoly", "Roleplay","Lancer","Dévelopeur",
                             "Zerfhu","Ace","Ropignon","Caï","Shez","Omelette","Ordinateur","Pandas","Numpy","bot","Discord",
-                        "Smash","Eludrya", "Jeritza","Bonheur","Vent","Arc","Massko", "Imagination","Kiragi"]
+                        "Smash","Eludrya", "Jeritza","Bonheur","Vent","Arc","Massko", "Imagination","Kiragi","Frougiera",
+                    "Quouvatich","Zeleph","Rumpel","Valentia","Amour","Haine","Sentiment","Primrose","Luminis"]
 //const c'est pour indiquer une constance qui va jamais changer, le type est dynamique comme en python. si ca doit changer, on utilise let
 // [] déclare un Array (tableau)
 //function blalba, définit une fonction blabla
