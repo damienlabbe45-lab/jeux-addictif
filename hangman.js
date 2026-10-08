@@ -91,7 +91,7 @@ function randomWords(){
     //new Unin32Array(1) tableau d'entier 3é bits non signés à 1 seule case (je suppose que le 1 vient de là)
     //c'est la structure exigé pour  recevoir le nombre généré.
     window.crypto.getRandomValues(array);
-    //méthode native du navigateur  qui remplit le tableau avec des octets aléatoires sécurisés. c'est l'quivalent de SecureRandom de java
+    //méthode native du navigateur  qui remplit le tableau avec des octets aléatoires sécurisés. c'est l'équivalent de SecureRandom de java
     const randomIndex = array[0] % words.length;
     //accède à la premère case du table et donne le reste  pavec comme dénominateur la taille du tableau
     return words[randomIndex].toLowerCase();
