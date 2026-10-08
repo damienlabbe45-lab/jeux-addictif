@@ -59,6 +59,7 @@ letters.addEventListener("submit", function(e){
 
 
 buttonRegame.addEventListener("click", function(){
+    /** l'évènement click est l'action de cliquer. addEventListener permet de ajouter un évènement */
     initGame();
     document.getElementById("input_web").value = "";
 })
